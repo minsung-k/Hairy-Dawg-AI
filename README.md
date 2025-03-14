@@ -3,6 +3,9 @@
 
 This repository is part of the [GenAI Competition 2.0](https://www.franklin.uga.edu/news/stories/2024/genai-competition-20), showcasing an AI-generated mascot model for the University of Georgia. It contains **LoRA fine-tuned weights** for generating images of **Hairy Dawg**, the Georgia Bulldogs' beloved mascot, using **Stable Diffusion 1.5** (or **SDXL**). The repo includes an example **Jupyter Notebook** to demonstrate how to apply the LoRA weights for image generation.
 
+
+You can open the  [example.ipynb](example.ipynb) to see how the image is generated.
+
 ## Features
 - Fine-tuned LoRA weights for Hairy Dawg text-to-image generation.
 - Example notebook for inference using Stable Diffusion and LoRA.
@@ -33,13 +36,13 @@ pip install diffusers transformers accelerate safetensors
    from diffusers import StableDiffusionPipeline
    from safetensors.torch import load_file
 
-   base_model = "stabilityai/stable-diffusion-xl-base-1.0"  # Use SDXL
+   base_model = "./stable-diffusion-xl-base-1.0"  # Use SDXL
    pipe = StableDiffusionPipeline.from_pretrained(base_model)
    ```
 
 2. **Load LoRA weights:**  
    ```python
-   lora_weights = "path_to_lora_weights.safetensors"
+   lora_weights = "./pytorch_lora_weights.safetensors"
    pipe.unet.load_attn_procs(load_file(lora_weights))
    ```
 
@@ -59,7 +62,7 @@ accelerate launch /train_dreambooth_lora_sdxl.py
 --pretrained_model_name_or_path="./"   
 --instance_data_dir="./dataset/instance_images"   
 --class_data_dir="./dataset/class_images"   
---output_dir="./dataset/dreambooth_output_2000"   
+--output_dir="./dataset/dreambooth_output"   
 --instance_prompt="a photo of Hairy Dawg, the Georgia Bulldogs mascot"   
 --class_prompt="a photo of a bulldog"   
 --resolution=1024   
