@@ -1,4 +1,6 @@
 # Hairy Dawg Text-to-Image Model (LoRA)
+![t2i](dataset/Picture1.png)
+
 
 This repository contains LoRA fine-tuned weights for generating images of **Hairy Dawg**, the University of Georgia's beloved mascot, using **Stable Diffusion 1.5** (or **SDXL**). The repo includes an example **Jupyter Notebook** to demonstrate how to apply the LoRA weights for image generation.
 
