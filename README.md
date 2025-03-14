@@ -55,7 +55,23 @@ pip install diffusers transformers accelerate safetensors
 If you want to fine-tune the model yourself, you can use the following **DreamBooth LoRA** training script:
 
 ```bash
-accelerate launch /scratch/mk47369/1.Research/python/diffusers/examples/dreambooth/train_dreambooth_lora_sdxl.py   --pretrained_model_name_or_path="./"   --instance_data_dir="./dataset/instance_images"   --class_data_dir="./dataset/class_images"   --output_dir="./dataset/dreambooth_output_2000"   --instance_prompt="a photo of Hairy Dawg, the Georgia Bulldogs mascot"   --class_prompt="a photo of a bulldog"   --resolution=1024   --train_batch_size=1   --gradient_accumulation_steps=1   --learning_rate=2e-6   --lr_scheduler="constant"   --lr_warmup_steps=0   --num_train_epochs=500   --checkpointing_steps=500   --enable_xformers_memory_efficient_attention   --mixed_precision="fp16"
+accelerate launch /train_dreambooth_lora_sdxl.py   
+--pretrained_model_name_or_path="./"   
+--instance_data_dir="./dataset/instance_images"   
+--class_data_dir="./dataset/class_images"   
+--output_dir="./dataset/dreambooth_output_2000"   
+--instance_prompt="a photo of Hairy Dawg, the Georgia Bulldogs mascot"   
+--class_prompt="a photo of a bulldog"   
+--resolution=1024   
+--train_batch_size=1   
+--gradient_accumulation_steps=1   
+--learning_rate=2e-6   
+--lr_scheduler="constant"   
+--lr_warmup_steps=0   
+--num_train_epochs=500   
+--checkpointing_steps=500   
+--enable_xformers_memory_efficient_attention   
+--mixed_precision="fp16"
 ```
 
 ## Dataset
